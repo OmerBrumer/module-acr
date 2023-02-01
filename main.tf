@@ -87,7 +87,7 @@ resource "azurerm_container_registry" "main" {
 }
 
 module "private_endpoint" {
-  source = "git::https://gitlab.com/OmerBrumer/private_endpoint.git"
+  source = "git::https://github.com/OmerBrumer/module-private-endpoint.git"
 
   private_endpoint_name          = "${var.container_registry_config.name}-private-endpoint"
   resource_group_name            = var.resource_group_name
@@ -99,7 +99,7 @@ module "private_endpoint" {
 }
 
 module "diagnostic_settings" {
-  source = "git::https://gitlab.com/OmerBrumer/diagnostic_setting.git"
+  source = "git::https://github.com/OmerBrumer/module-diagnostic-setting.git"
 
   diagonstic_setting_name    = "${azurerm_container_registry.main.name}-diagnostic-setting"
   log_analytics_workspace_id = var.log_analytics_workspace_id
